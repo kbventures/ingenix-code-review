@@ -1,0 +1,13 @@
+{
+  "name": "code-review-kit",
+  "version": "1.0.0",
+  "description": "Code review for AI-written apps: a check on every change, a weekly whole-app review, and architecture advice. Checks code against 13 architecture rules.",
+  "author": {
+    "name": "Ingenix Online",
+    "url": "https://ingenix.online"
+  },
+  "homepage": "https://ingenix.online/blog/how-we-review-ai-written-code",
+  "repository": "https://github.com/kbventures/ingenix-code-review",
+  "license": "MIT",
+  "keywords": ["code-review", "architecture", "nextjs", "typescript", "security"]
+}
