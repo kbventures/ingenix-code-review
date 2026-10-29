@@ -53,6 +53,9 @@ lib/modules/<feature>/
 
 - **The 4 files** — `queries`, `model`, `rules`, `workflow` — are the fixed roles. Mappers
   fold into `model`; policy folds into `rules`; the service/use-case is `workflow`.
+- **`workflow` is the front door** (architecture rule 14). Code outside the module imports
+  only `<feature>.workflow.ts`, plus `import type` from `<feature>.model.ts`. Queries,
+  rules and adapters stay private to the module.
 - **`adapters/` is optional** — present ONLY in protected modules (rule 5) or modules that
   wrap a vendor (rule 8): billing, auth, AI, integrations, queue. Plain CRUD modules ship
   just the 4 files, no adapters, no ports ceremony.
@@ -166,6 +169,8 @@ Flag these:
   queue logic calling vendors or mutating state directly with no adapter boundary — rule 5.
 - **One business rule split across modules**, or a module reaching into another module's
   tables/internals instead of calling its API — rules 3, 4.
+- **Import past the front door** — code outside a module importing anything from it other
+  than its workflow file (or types from its model file) — architecture rule 14.
 - **Domain logic depending on a framework singleton** — architecture rule 8; hand to
   `code-review-kit:arch-review`.
 

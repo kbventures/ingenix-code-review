@@ -4,7 +4,7 @@ AI writes code fast. The mistakes pile up quietly. This kit is the review system
 
 It does three jobs:
 
-1. **Checks every change before it ships.** It finds bugs and checks the change against 13 architecture rules.
+1. **Checks every change before it ships.** It finds bugs and checks the change against 14 architecture rules.
 2. **Checks the whole app once a week.** It reads every file, double-checks each problem so you don't chase false alarms, and tracks what got fixed since last week.
 3. **Tells you how your app should be structured.** It names the structure you have, flags "god files" (one file doing far too much), and recommends a simple structure for each part of your app.
 
@@ -30,9 +30,9 @@ In Claude Code, run:
 
 Reports are saved under `code-review/` in your project.
 
-## The 13 rules
+## The 14 rules
 
-The reviews check code against 13 architecture rules — see [`skills/architecture-rules/SKILL.md`](skills/architecture-rules/SKILL.md). Why each rule exists: [How to Stop AI from Vibe-Coding Your Next.js App into a Mess](https://ingenix.online/blog/stop-ai-vibe-coding-nextjs-architecture).
+The reviews check code against 14 architecture rules — see [`skills/architecture-rules/SKILL.md`](skills/architecture-rules/SKILL.md). Why each rule exists: [How to Stop AI from Vibe-Coding Your Next.js App into a Mess](https://ingenix.online/blog/stop-ai-vibe-coding-nextjs-architecture).
 
 If your project's `CLAUDE.md` has its own "Architecture Rules" section, the reviews use yours instead. To adopt ours, copy the list into your `CLAUDE.md`.
 
@@ -44,7 +44,7 @@ If your project's `CLAUDE.md` has its own "Architecture Rules" section, the revi
 
 **Passes they call**
 - `bug-review` — bugs, regressions, test gaps
-- `arch-review` — the 13 rules
+- `arch-review` — the 14 rules
 - `architecture-rules` — the rule list
 - `test-fix` — writes missing tests, fixes broken ones
 - `security-checklist` — secrets, input validation, auth, XSS, CSRF, rate limits

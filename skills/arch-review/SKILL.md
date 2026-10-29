@@ -1,6 +1,6 @@
 ---
 name: arch-review
-description: Dispatch a fresh subagent to review code changes against the 13 architecture rules. Catches boundary violations, layer mixing, missing ownership checks, unlocked read-then-write, and structural drift.
+description: Dispatch a fresh subagent to review code changes against the 14 architecture rules. Catches boundary violations, layer mixing, missing ownership checks, unlocked read-then-write, and structural drift.
 ---
 
 # Architecture Review
@@ -17,7 +17,7 @@ Dispatch an architecture reviewer subagent to check changes against the project'
 
 1. Get the rules:
    - If the project's `CLAUDE.md` has an "Architecture Rules" section, use it.
-   - Otherwise load the `code-review-kit:architecture-rules` skill and use its 13 rules.
+   - Otherwise load the `code-review-kit:architecture-rules` skill and use its 14 rules.
 
 2. Determine the git range (same as the `code-review-kit:bug-review` skill).
 

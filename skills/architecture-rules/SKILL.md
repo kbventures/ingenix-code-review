@@ -1,6 +1,6 @@
 ---
 name: architecture-rules
-description: The 13 architecture rules the review skills check against. Load this when a review needs the rule list and the project's own CLAUDE.md has no "Architecture Rules" section.
+description: The 14 architecture rules the review skills check against. Load this when a review needs the rule list and the project's own CLAUDE.md has no "Architecture Rules" section.
 ---
 
 # Architecture Rules
@@ -24,3 +24,4 @@ The review skills in this kit (`arch-review`, `full-review-weekly`, `modular-mon
 11. **Use one validation and error style everywhere.** One validation library, one error shape, one pattern. No mixing Zod + manual checks + ad-hoc try/catch conventions.
 12. **Every UPDATE/DELETE carries an ownership predicate.** Every mutation includes the owner key (`user_id`, `tenant_id`, or equivalent) in its `WHERE` clause. Re-validate ownership at the point of write, not only earlier in the request.
 13. **Read-then-write runs in a transaction with `FOR UPDATE`.** Any sequence that reads a row, decides, then writes must lock the row inside a transaction. No check-then-act outside a lock.
+14. **Other code reaches a module only through its front door.** Each module has one public entry file (its workflow or service file). Code outside the module imports only that file, plus types from the module's model file. Queries, rules and adapters stay private to the module.

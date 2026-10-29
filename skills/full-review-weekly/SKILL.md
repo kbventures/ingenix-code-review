@@ -100,7 +100,7 @@ Arch pass prompt: same files, plus:
 
 ```
 Rules: the "Architecture Rules" section of the project CLAUDE.md, else load the code-review-kit:architecture-rules skill.
-Check every file against ALL 13 rules. Name the rule in the issue: "R12: ...".
+Check every file against ALL 14 rules. Name the rule in the issue: "R12: ...".
 Rule 12: every UPDATE/DELETE has a user_id ownership predicate.
 Rule 13: read-then-write runs in a transaction with FOR UPDATE.
 If docs/system-map/frontend-map.md exists, check UI files against its Pattern section.
