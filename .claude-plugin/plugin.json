@@ -1,7 +1,7 @@
 {
   "name": "code-review-kit",
   "version": "1.0.0",
-  "description": "Code review for AI-written apps: a check on every change, a weekly whole-app review, and architecture advice. Checks code against 13 architecture rules.",
+  "description": "Code review for AI-written apps: a check on every change, a weekly whole-app review, and architecture advice. Checks code against 15 architecture rules.",
   "author": {
     "name": "Ingenix Online",
     "url": "https://ingenix.online"

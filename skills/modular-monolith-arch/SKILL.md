@@ -58,6 +58,9 @@ lib/modules/<feature>/
   stay private. Browser files import no module code: values both sides need live in
   `lib/shared/<feature>/`, which imports no module code. Enforce it with a test that
   scans imports, from day one.
+- **The door checks before it saves** (architecture rule 15). A door never re-exports a
+  queries save; each save is a door function that runs the module's rules, then the
+  query. Reads may pass through.
 - **`adapters/` is optional** — present ONLY in protected modules (rule 5) or modules that
   wrap a vendor (rule 8): billing, auth, AI, integrations, queue. Plain CRUD modules ship
   just the 4 files, no adapters, no ports ceremony.

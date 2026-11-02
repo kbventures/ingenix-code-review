@@ -1,6 +1,6 @@
 ---
 name: architecture-rules
-description: The 14 architecture rules the review skills check against. Load this when a review needs the rule list and the project's own CLAUDE.md has no "Architecture Rules" section.
+description: The 15 architecture rules the review skills check against. Load this when a review needs the rule list and the project's own CLAUDE.md has no "Architecture Rules" section.
 ---
 
 # Architecture Rules
@@ -9,7 +9,7 @@ The review skills in this kit (`arch-review`, `full-review-weekly`, `modular-mon
 
 **Project rules win.** If the project's `CLAUDE.md` has an "Architecture Rules" section, use that list instead of this one. To adopt these rules in a project, copy the list below into its `CLAUDE.md`.
 
-## The 13 Rules
+## The 15 Rules
 
 1. **Store facts, not assumptions.** Persist observed data. Don't store derived or speculative state that can go stale.
 2. **Prefer fewer states and simpler workflows.** Fewer states = fewer bugs. Collapse redundant states. Simplify transitions.
@@ -25,3 +25,4 @@ The review skills in this kit (`arch-review`, `full-review-weekly`, `modular-mon
 12. **Every UPDATE/DELETE carries an ownership predicate.** Every mutation includes the owner key (`user_id`, `tenant_id`, or equivalent) in its `WHERE` clause. Re-validate ownership at the point of write, not only earlier in the request.
 13. **Read-then-write runs in a transaction with `FOR UPDATE`.** Any sequence that reads a row, decides, then writes must lock the row inside a transaction. No check-then-act outside a lock.
 14. **Other code reaches a module only through its front door.** Each module has one public entry file (its workflow or service file). Code outside the module imports only that file; type-only imports are fine. Queries, rules and adapters stay private. Browser files import no module code; plain values and checks both sides need live in a shared folder that imports no module code. Enforce it with a test that scans imports.
+15. **The front door runs the checks before it saves.** The front door never hands out a queries save (insert/update/delete) raw: each save goes through a door function that runs the module's rules first. Reads may pass through.

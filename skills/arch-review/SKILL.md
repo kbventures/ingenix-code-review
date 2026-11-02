@@ -1,6 +1,6 @@
 ---
 name: arch-review
-description: Dispatch a fresh subagent to review code changes against the 14 architecture rules. Catches boundary violations, layer mixing, missing ownership checks, unlocked read-then-write, and structural drift.
+description: Dispatch a fresh subagent to review code changes against the 15 architecture rules. Catches boundary violations, layer mixing, missing ownership checks, unlocked read-then-write, and structural drift.
 ---
 
 # Architecture Review
@@ -17,7 +17,7 @@ Dispatch an architecture reviewer subagent to check changes against the project'
 
 1. Get the rules:
    - If the project's `CLAUDE.md` has an "Architecture Rules" section, use it.
-   - Otherwise load the `code-review-kit:architecture-rules` skill and use its 14 rules.
+   - Otherwise load the `code-review-kit:architecture-rules` skill and use its 15 rules.
 
 2. Determine the git range (same as the `code-review-kit:bug-review` skill).
 
@@ -57,6 +57,7 @@ For EACH changed file:
 Pay special attention to:
 - Every UPDATE/DELETE/upsert: does the WHERE clause include the owner key (rule 12)?
 - Every read-then-write sequence: is it inside a transaction with FOR UPDATE (rule 13)?
+- Every save a module's front door hands out: does it run the module's rules first, never a raw queries save (rule 15)?
 
 ## Output Format
 
